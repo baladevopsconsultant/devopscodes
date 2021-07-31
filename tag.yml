@@ -1,0 +1,30 @@
+---
+- name: Installing wget and copying fetch.yml
+  hosts: db
+  tasks:
+   - name: Install wget
+     yum:
+      name: wget
+      state: latest
+     tags:
+      - Installation
+   - name: Copy fetch.yml
+     copy:
+      src: fetch.yml
+      dest: /tmp
+     tags:
+      - Copying
+   - name: Copy httpd.yml
+     copy:
+      src: httpd.yml
+      dest: /opt
+#- name: Install ntp 
+#  hosts: monitor
+#  tasks:
+#   - name: Install ntp
+#     yum:
+#      name: ntp
+#      state: latest
+####Playbook - Collection of tasks
+####Tasks - Collection of plays
+####Plays - Actual code which is invoked for execution

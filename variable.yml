@@ -1,0 +1,20 @@
+---
+- name: Installation of multiple packages
+  hosts: db
+  vars:
+   - package1: httpd
+   - package2: wget
+   - package3: vsftpd
+  tasks:
+   - name: Install Httpd
+     yum:
+      name: "{{ package1 }}"
+      state: latest
+   - name: Install wget
+     yum:
+      name: "{{ package2 }}"
+      state: latest
+   - name: Install ftp
+     yum:
+      name: "{{ package3 }}"
+      state: latest

@@ -1,0 +1,11 @@
+---
+- name: Removing the packages which are installed
+  hosts: db
+  tasks:
+   - name: removal of all the packages - httpd,wget,vsftpd
+     yum:
+      name:
+       - httpd
+       - wget
+       - vsftpd
+      state: absent

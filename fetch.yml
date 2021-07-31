@@ -1,0 +1,9 @@
+---
+- name: Copying the files
+  hosts: node1
+  tasks:
+   - name: Copy httpd.yml file to node2
+     fetch: 
+      src: /opt/httpd.yml
+      dest: /tmp/
+      flat: yes

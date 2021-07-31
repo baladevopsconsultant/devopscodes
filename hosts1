@@ -1,0 +1,5 @@
+[monitor]
+node2
+[monitor:vars]
+path1=/tmp/fetch.yml
+path2=/opt

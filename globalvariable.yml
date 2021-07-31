@@ -1,0 +1,11 @@
+---
+- name: Package Installation using Global Variable
+  hosts: db
+  tasks:
+   - name: Install the packages
+     yum:
+      name: 
+       - "{{pack1}}"
+       - "{{pack2}}"
+       - "{{pack3}}"
+      state: latest

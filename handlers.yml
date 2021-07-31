@@ -1,0 +1,28 @@
+---
+- name: Create a file xinetd.config under /opt and push to the /tmp, restart xinetd service
+  hosts: db
+  tasks:
+   - name: Install xinetd package
+     yum:
+      name: xinetd
+      state: latest
+   - name: Create a file xinetd.config under /opt
+     file:
+      path: /opt/xinetd.config
+      state: touch
+   - name: Copy the xinted.config file to /tmp
+     copy:
+      src: /opt/xinetd.config
+      dest: /tmp
+      owner: ansible
+      group: ansible
+      remote_src: yes
+     check_mode: no
+     notify:
+      - restart xinetd
+  handlers:
+   - name: restart xinetd
+     service:
+      name: xinetd
+      state: restarted
+  

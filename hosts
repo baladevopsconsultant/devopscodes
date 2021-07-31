@@ -1,0 +1,10 @@
+[db]
+node1
+[monitor]
+node2
+[db:vars]
+pack1=httpd
+pack2=wget
+pack3=vsftpd
+path1=/tmp/fetch.yml
+path2=/opt

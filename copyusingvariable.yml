@@ -1,0 +1,11 @@
+---
+- name: Copy the fetch.yml file to the /opt of the hosts
+  hosts: monitor
+  tasks:
+   - name: Copying the fetch.yml file
+     copy:
+      src: "{{path1}}"
+      dest: "{{path2}}"
+      owner: ansible
+      group: ansible
+      remote_src: yes
