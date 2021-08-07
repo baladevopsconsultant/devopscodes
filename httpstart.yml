@@ -1,0 +1,29 @@
+---
+- name: Start the httpd service if the package exists else install the package and start the service
+  hosts: db
+  vars:
+   - pack1: httpd
+  tasks:
+   - name: Registering the output variable
+     command: rpm -qa "{{pack1}}"
+     register: output
+   - name: Start the service if the package exists
+     service:
+      name: "{{pack1}}"
+      state: restarted
+     when: output.stdout != ""
+   - name: Install the package
+     yum:
+      name: "{{pack1}}"
+      state: latest
+     when: output.stdout == ""
+     notify:
+      - restart httpd
+  handlers:
+   - name: restart httpd
+     service:
+      name: "{{pack1}}"
+      state: restarted
+     
+
+

@@ -1,0 +1,22 @@
+---
+- name: Create a file in node1 and push it to /opt of node1, Install httpd in node2
+  hosts: db
+  tasks:
+   - name: Creating File
+     file:
+      path: /tmp/condition.txt
+      state: touch
+     when: inventory_hostname in groups["backup"]
+#   - name: Copy to /opt
+#     copy:
+#      src: /tmp/condition.txt
+#      dest: /opt
+#      remote_src: yes
+#     when: ansible_nodename == "node1"
+#   - name: Install httpd
+#     yum:
+#      name: httpd
+#      state: present
+#     when: ansible_nodename == "node2"
+#
+

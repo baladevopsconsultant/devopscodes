@@ -1,0 +1,15 @@
+---
+- name: Defining same set of variables and sorting out which will take the precedence
+  hosts: db
+  vars:
+   - pack1: wget
+   - pack2: xinetd
+  tasks:
+   - name: Install wget
+     yum:
+      name: "{{pack1}}"
+      state: latest
+   - name: Install ntp
+     yum:
+      name: "{{pack2}}"
+      state: latest

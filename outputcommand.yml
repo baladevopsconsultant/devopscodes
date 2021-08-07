@@ -1,0 +1,9 @@
+---
+- name: Output the package details
+  hosts: db
+  tasks: 
+   - name: Investigate the package info
+     command: rpm -qa httpd
+     register: output
+   - debug:
+      var: output
