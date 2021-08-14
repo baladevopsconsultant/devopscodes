@@ -1,0 +1,3 @@
+##Defining the hostname and IP address
+"The name of hostname is:" {{ansible_hostname}}
+"The IP address of the hostname is:" {{ansible_default_ipv4.address}}

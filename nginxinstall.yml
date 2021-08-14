@@ -1,0 +1,5 @@
+---
+- name: Calling the role nginx
+  hosts: db
+  roles:
+   - nginx

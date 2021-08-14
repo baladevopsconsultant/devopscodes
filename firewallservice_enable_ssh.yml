@@ -1,0 +1,5 @@
+---
+- name: Calling myvhost to enable the firewall service and enable the vhosts
+  hosts: monitor
+  roles:
+   - myfirewall
