@@ -1,0 +1,9 @@
+---
+- name: Download the url 
+  hosts: all
+  tasks:
+   - name: Download and copy to destined location
+     get_url:
+      url: http://www.africau.edu/images/default/sample.pdf
+      dest: /var/tmp/
+      mode: 0644

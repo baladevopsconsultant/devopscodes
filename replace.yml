@@ -1,0 +1,19 @@
+---
+- name: Creating a file and adding the contents to it
+  hosts: all
+  tasks:
+   - name: Creating a file
+     file:
+      path: /tmp/jolly
+      state: touch
+   - name: Content addition
+     copy:
+      content: |
+       node1
+       node2
+      dest: /tmp/jolly
+   - name: node1 replace with node3
+     replace:
+      path: /tmp/jolly
+      regexp: node1
+      replace: node3
