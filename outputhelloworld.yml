@@ -1,0 +1,9 @@
+---
+- name: Output hello world 
+  hosts: db
+  tasks:
+   - name: Output the hello world
+     shell: echo "Hello world"
+     register: output
+   - debug:
+      var: output
